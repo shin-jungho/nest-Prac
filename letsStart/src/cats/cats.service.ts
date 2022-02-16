@@ -34,7 +34,7 @@ export const readCat = (req: Request, res: Response) => {
         cat,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).send({
       success: false,
       error: error.message,
@@ -51,7 +51,7 @@ export const createCat = (req: Request, res: Response) => {
       success: true,
       data: { data },
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).send({
       success: false,
       error: error.message,
@@ -77,7 +77,7 @@ export const updateCat = (req: Request, res: Response) => {
         cat: result,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).send({
       success: false,
       error: error.message,
@@ -103,7 +103,7 @@ export const updatePartialCat = (req: Request, res: Response) => {
         cat: result,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).send({
       success: false,
       error: error.message,
@@ -120,7 +120,7 @@ export const deleteCat = (req: Request, res: Response) => {
       success: true,
       data: newCat,
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(400).send({
       success: false,
       error: error.message,
