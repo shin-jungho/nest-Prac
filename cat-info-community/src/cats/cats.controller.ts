@@ -1,3 +1,5 @@
+import { LoginRequestDto } from './../auth/dto/login.request/login.request.dto';
+import { AuthService } from './../auth/auth.service';
 /* eslint-disable no-console */
 import { CatRequestDto } from './dto/cats.request.dto';
 import { Body, UseFilters, UseInterceptors } from '@nestjs/common';
@@ -12,7 +14,10 @@ import { ReadOnlyCatDto } from './dto/cat.dto';
 @UseInterceptors(SuccessInterceptor)
 @UseFilters(HttpExceptionFilter)
 export class CatsController {
-  constructor(private readonly catsService: CatsService) {}
+  constructor(
+    private readonly catsService: CatsService,
+    private readonly authService: AuthService,
+  ) {}
 
   @ApiResponse({
     status: 500,
@@ -36,8 +41,8 @@ export class CatsController {
 
   @ApiOperation({ summary: '로그인' })
   @Post('login')
-  logIn() {
-    return 'login';
+  logIn(@Body() data: LoginRequestDto) {
+    return this.authService.jwtLogin(data);
   }
 
   @ApiOperation({ summary: '로그아웃' })

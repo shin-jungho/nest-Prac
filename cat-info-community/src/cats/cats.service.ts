@@ -8,7 +8,7 @@ import { CatRequestDto } from './dto/cats.request.dto';
 
 @Injectable()
 export class CatsService {
-  constructor(private readonly catsRepository: CatsRepository) {}
+  constructor(private catsRepository: CatsRepository) {}
 
   async signUp(body: CatRequestDto) {
     const { email, name, password } = body;
