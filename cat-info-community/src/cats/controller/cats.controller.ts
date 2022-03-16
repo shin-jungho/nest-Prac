@@ -56,7 +56,9 @@ export class CatsController {
   @UseInterceptors(FileInterceptor('image', 10, multerOptions('cats')))
   @UseGuards(JwtAuthGuard)
   @Post('upload')
-  uploadCatImg(@UploadedFiles() files: Array<Express.Multer.File>) {
+  uploadCatImg(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @CurrentUser() cat: Cat,) {
     console.log(files);
     // return 'uploadImg';
     return this.catsService.uploadImg(cat, files);
