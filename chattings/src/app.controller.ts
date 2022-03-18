@@ -8,7 +8,7 @@ export class AppController {
     return {
       data: {
         title: 'Chattings',
-        copyright: 'yoon sang seok',
+        copyright: 'shin jungho',
       },
     };
   }

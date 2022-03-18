@@ -13,8 +13,6 @@ import * as mongoose from 'mongoose';
     MongooseModule.forRoot(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
     }),
     ChatsModule,
   ],
